@@ -7,12 +7,15 @@ import CSM from "three-custom-shader-material";
 
 const vertexShader = /* glsl */ `
   varying vec2 vUv;
+  varying vec3 vPosition; // use the world position instead of the uv
   void main() {
     vUv = uv;
+    vPosition = position;
   }`;
 
 const fragmentShader = patchShaders(/* glsl */ `
   varying vec2 vUv;
+  varying vec3 vPosition;
   uniform float uThickness;
   uniform vec3 uColor;
   uniform float uProgress;
@@ -20,7 +23,8 @@ const fragmentShader = patchShaders(/* glsl */ `
   
   void main() {
     gln_tFBMOpts opts = gln_tFBMOpts(1.0, 0.3, 2.0, 5.0, 1.0, 5, false, false);
-    float noise = gln_sfbm(vUv, opts);
+    // float noise = gln_sfbm(vUv, opts); // THE ORIGINAL CODE FROM THE TUTORIAL
+    float noise = gln_sfbm(vPosition, opts); //  use the world position instead of the uv for a better effect working on all objects
     noise = gln_normalize(noise);
 
     float progress = uProgress;
