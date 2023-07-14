@@ -1,10 +1,6 @@
-# r3f-vite-starter
-A boilerplate to build R3F projects
 
-```
-yarn
-yarn dev
-```
+![Object Dissolve Video thumbnail](https://github.com/wass08/r3f-objects-dissolve/assets/6551176/69a661d4-a26d-4943-9a37-1ff74302c2c7)
 
+[Watch the video tutorial](https://youtu.be/ma9t7HAOZRg)
 
-![image](https://user-images.githubusercontent.com/6551176/221732091-23ee52cb-4150-42fa-b998-43628d7a6b0d.png)
+[Live preview](https://r3f-objects-dissolve.vercel.app/)
